@@ -7,7 +7,7 @@ Feature: Validation of OrangeHRM home page
     Then verify OrangeHRM logo
     And close the browser
 
-  @RegressionTest
+  @RegressionTesr
   Scenario: Validate email address field
     Given launch chrome browser
     When user navigates to OrangeHRM home page
