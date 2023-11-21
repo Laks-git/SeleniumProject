@@ -1,0 +1,38 @@
+# Sample CI Configuration YAML
+
+# Define the name of the CI pipeline
+name: MyCI
+
+# Specify the trigger conditions for the pipeline
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - '*'
+
+# Define the jobs to be executed in the pipeline
+jobs:
+  build:
+    # Specify the type of runner/environment for the job
+    runs-on: ubuntu-latest
+
+    # Define steps to be executed in the job
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+
+      - name: Run Tests
+        run: npm test
